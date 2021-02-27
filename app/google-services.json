@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "350028309838",
+    "firebase_url": "https://gim-84f3f-default-rtdb.firebaseio.com",
+    "project_id": "gim-84f3f",
+    "storage_bucket": "gim-84f3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350028309838:android:8e0cd271decd2e48752a1f",
+        "android_client_info": {
+          "package_name": "com.example.gim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350028309838-2km2qvmgc377dj5knm04o4fedqiqk0dq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gim",
+            "certificate_hash": "56c0d3dea7090ffeb6d25a2a1f05ea553e8de002"
+          }
+        },
+        {
+          "client_id": "350028309838-nugobgrhkdvs7g97rhelei4ppcffagjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCvBmMdXV7nQ7A-9ptUw8saEWyL9ysW2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350028309838-nugobgrhkdvs7g97rhelei4ppcffagjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
