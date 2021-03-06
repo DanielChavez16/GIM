@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GIM</string>
+    <string name="main_txt_email">Correo electronico</string>
+    <string name="main_txt_password">Contraseña</string>
+    <string name="main_txt_register">Regístrate</string>
+    <string name="main_btn_join">Iniciar sesión</string>
+    <string name="main_img_logo">Logo del gimnasio</string>
+    <string name="main_txt_lang">en / ES</string>
+    <string name="reg_txt_registry">REGISTRO</string>
+    <string name="reg_txt_name">Nombre</string>
+    <string name="reg_txt_email">Correo electrónico</string>
+    <string name="reg_txt_password">Contraseña</string>
+    <string name="reg_txt_password2">Confirmar contraseña</string>
+    <string name="reg_btn_signup">Registrarse</string>
+    <string name="reg_img_logo">Logo del gimnasio</string>
+    <string name="reg_img_return">Regresar a la pantalla de inicio de sesión</string>
+</resources>

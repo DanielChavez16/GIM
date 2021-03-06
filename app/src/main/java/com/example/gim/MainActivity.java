@@ -3,19 +3,22 @@ package com.example.gim;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_main);
 
         //Obtencion de las vistas de la interfaz
@@ -91,6 +95,39 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error: Llena todos los campos", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    //Metodo que obtiene el lenguaje actual y ejecuta el metodo para cambiarlo
+    public void cambiarLen(View view) {
+        loadLocale();
+        String idioma = Locale.getDefault().toString();
+        if(idioma.equals("es")) {
+            setLocale("en");
+        } else {
+            setLocale("es");
+        }
+        this.recreate();
+    }
+
+    //Metodo que establece el lenguaje de la aplicacion y lo guarda en la memoria
+    public void setLocale(String locale) {
+        Locale lang = new Locale(locale);
+        Locale.setDefault(lang);
+
+        Configuration config = new Configuration();
+        config.setLocale(lang);
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", locale);
+        editor.apply();
+    }
+
+    //Metodo que carga el idioma de la memoria
+    public void  loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String lang = prefs.getString("My_Lang", "");
+        setLocale(lang);
     }
 
     //Metodo booleano que valida el correo electronico introducido
