@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
                         //Error: El usuario no se encuentra en el registro de usuarios de firebase
-                        Toast.makeText(MainActivity.this, "No existe usuario", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.main_msg_1, Toast.LENGTH_LONG).show();
                     } else {
                         //Creacion del objeto "user" que indica si el usuario a validado su correo electronico
                         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -74,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
                         if (user != null) {
                             if (!user.isEmailVerified()) {
                                 //Error: El usuario existe pero no puede iniciar sesion hasta verificar su correo electronico
-                                Toast.makeText(MainActivity.this, "El correo electronico no esta verificado", Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, R.string.main_msg_2, Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(MainActivity.this, "El usuario inicio sesión correctamente", Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, R.string.main_msg_6, Toast.LENGTH_LONG).show();
                             }
                         } else {
                             //Error: No se pudo iniciar sesion por razones externas
-                            Toast.makeText(MainActivity.this, "No se pudo iniciar sesión", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, R.string.main_msg_3, Toast.LENGTH_LONG).show();
                         }
                     }
                 }
@@ -89,10 +89,10 @@ public class MainActivity extends AppCompatActivity {
         else {
             //Errores que indican que los datos obtenidos en los campos de texto no son aceptados
             if(!email.equals("") && !validarEmail(email)) {
-                Toast.makeText(this, "Correo no valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.main_msg_4, Toast.LENGTH_SHORT).show();
             }
             if(email.equals("") || pass.equals("")) {
-                Toast.makeText(this, "Error: Llena todos los campos", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.main_msg_5, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -106,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             setLocale("es");
         }
-        this.recreate();
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        this.finish();
     }
 
     //Metodo que establece el lenguaje de la aplicacion y lo guarda en la memoria

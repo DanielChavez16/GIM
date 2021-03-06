@@ -67,26 +67,26 @@ public class RegistryActivity extends AppCompatActivity {
                     iniciarRegistro();
                 } catch(Exception e) {
                     //Error: No se puede iniciar el registro por razones externas
-                    Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_1, Toast.LENGTH_LONG).show();
                 }
             } else {
                 if(password.length() < 6) {
                     //Error: modificar la longitud de la contraseña introducida
-                    Toast.makeText(this, "Error: La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_2, Toast.LENGTH_LONG).show();
                 }
                 else {
                     //Error: Las contraseñas introducidas no coinciden
-                    Toast.makeText(this, "Error: Confirma tu contraseña", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_3, Toast.LENGTH_LONG).show();
                 }
             }
         }
         else {
             //Errores que indican que los datos obtenidos en los campos de texto no son aceptados
             if(!email.equals("") && !validarEmail(email)) {
-                Toast.makeText(this, "Correo no valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.reg_msg_4, Toast.LENGTH_SHORT).show();
             }
             if(name.equals("") || email.equals("") || password.equals("")) {
-                Toast.makeText(this, "Error: Llena todos los campos", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.reg_msg_5, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -115,18 +115,18 @@ public class RegistryActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
-                                Toast.makeText(RegistryActivity.this, "Usuario registrado\nVerifique su correo para poder iniciar sesion", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegistryActivity.this, R.string.reg_msg_6, Toast.LENGTH_LONG).show();
                             }
                             else {
-                                //Error: Los datos del usuario no se pudieron insetrar en la base de datos
-                                Toast.makeText(RegistryActivity.this, "Error: No se pudo ingresar los datos del usuario", Toast.LENGTH_LONG).show();
+                                //Error: Los datos del usuario no se pudieron insertar en la base de datos
+                                Toast.makeText(RegistryActivity.this, R.string.reg_msg_7, Toast.LENGTH_LONG).show();
                             }
                         }
                     });
                 }
                 else {
                     //Error: No se pudo crear el usuario por razones externas
-                    Toast.makeText(RegistryActivity.this, "Error: No se pudo crear el usuario", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistryActivity.this, R.string.reg_msg_8, Toast.LENGTH_LONG).show();
                 }
             }
         });

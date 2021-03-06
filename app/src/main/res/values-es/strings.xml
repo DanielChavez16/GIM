@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Fuentes de la ventana de inicio de sesión -->
     <string name="app_name">GIM</string>
     <string name="main_txt_email">Correo electronico</string>
     <string name="main_txt_password">Contraseña</string>
@@ -7,6 +8,8 @@
     <string name="main_btn_join">Iniciar sesión</string>
     <string name="main_img_logo">Logo del gimnasio</string>
     <string name="main_txt_lang">en / ES</string>
+
+    <!-- Fuentes de la ventana de registro -->
     <string name="reg_txt_registry">REGISTRO</string>
     <string name="reg_txt_name">Nombre</string>
     <string name="reg_txt_email">Correo electrónico</string>
@@ -15,4 +18,21 @@
     <string name="reg_btn_signup">Registrarse</string>
     <string name="reg_img_logo">Logo del gimnasio</string>
     <string name="reg_img_return">Regresar a la pantalla de inicio de sesión</string>
+
+    <!-- Fuentes de mensajes emergentes de la aplicacion -->
+    <string name="main_msg_1">No existe usuario</string>
+    <string name="main_msg_2">El correo electronico no esta verificado</string>
+    <string name="main_msg_3">No se pudo iniciar sesión</string>
+    <string name="main_msg_4">Correo no valido</string>
+    <string name="main_msg_5">Error: Llena todos los campos</string>
+    <string name="main_msg_6">El usuario inicio sesión correctamente</string>
+
+    <string name="reg_msg_1">Error al registrar usuario</string>
+    <string name="reg_msg_2">Error: La contraseña debe contener mas de 6 caracteres</string>
+    <string name="reg_msg_3">Error: Confirma tu contraseña</string>
+    <string name="reg_msg_4">Correo no valido</string>
+    <string name="reg_msg_5">Error: Llena todos los campos</string>
+    <string name="reg_msg_6">Usuario registrado\nVerifique su correo para poder iniciar sesión</string>
+    <string name="reg_msg_7">Error: No se pudo ingresar los datos del usuario</string>
+    <string name="reg_msg_8">Error: No se pudo crear el usuario</string>
 </resources>

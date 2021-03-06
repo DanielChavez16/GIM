@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Login window fonts -->
     <string name="app_name">GIM</string>
     <string name="main_txt_email">e-Mail</string>
     <string name="main_txt_password">Password</string>
@@ -7,6 +8,8 @@
     <string name="main_btn_join">Join</string>
     <string name="main_img_logo">GIM logo</string>
     <string name="main_txt_lang">EN / es</string>
+
+    <!-- Sign up window fonts -->
     <string name="reg_txt_registry">REGISTER</string>
     <string name="reg_txt_name">Name</string>
     <string name="reg_txt_email">e-Mail</string>
@@ -15,4 +18,21 @@
     <string name="reg_btn_signup">Sign Up</string>
     <string name="reg_img_logo">GIM logo</string>
     <string name="reg_img_return">Return to the sign in screen</string>
+
+    <!-- App messages fonts -->
+    <string name="main_msg_1">User dont exist</string>
+    <string name="main_msg_2">E-mail not verified</string>
+    <string name="main_msg_3">Couldnt start session</string>
+    <string name="main_msg_4">E-mail not valid</string>
+    <string name="main_msg_5">Error: Fill all the fields</string>
+    <string name="main_msg_6">User started session correctly</string>
+
+    <string name="reg_msg_1">Error registring user</string>
+    <string name="reg_msg_2">Error: Password must contain more than 6 characters</string>
+    <string name="reg_msg_3">Error: Confirm your password</string>
+    <string name="reg_msg_4">E-mail not valid</string>
+    <string name="reg_msg_5">Error: Fill all the fields</string>
+    <string name="reg_msg_6">User registered\nVerify your email to start session</string>
+    <string name="reg_msg_7">Error: Couldnt fill user data</string>
+    <string name="reg_msg_8">Error: Couldnt create user</string>
 </resources>
