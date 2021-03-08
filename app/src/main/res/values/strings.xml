@@ -18,6 +18,17 @@
     <string name="reg_img_logo">GIM logo</string>
     <string name="reg_img_return">Return to the sign in screen</string>
 
+    <!-- Sign up window fonts -->
+    <string name="emenu_btn_menu">Menu button</string>
+    <string name="emenu_btn_clients">Clients list button</string>
+    <string name="emenu_btn_machines">Machines list button</string>
+    <string name="emenu_btn_routines">Routines list button</string>
+    <string name="emenu_btn_stats">Gim stats button</string>
+    <string name="emenu_txt_routines">Routine`s list</string>
+    <string name="emenu_txt_clients">Client`s list</string>
+    <string name="emenu_txt_machines">Machine`s list</string>
+    <string name="emenu_txt_stats">GIM stats</string>
+
     <!-- App messages fonts -->
     <string name="main_msg_1">User dont exist</string>
     <string name="main_msg_2">E-mail not verified</string>

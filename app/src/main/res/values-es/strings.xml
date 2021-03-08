@@ -19,6 +19,17 @@
     <string name="reg_img_logo">Logo del gimnasio</string>
     <string name="reg_img_return">Regresar a la pantalla de inicio de sesión</string>
 
+    <!-- Fuentes del menu empleado -->
+    <string name="emenu_btn_menu">Botón menú</string>
+    <string name="emenu_btn_clients">Botón lista de clientes</string>
+    <string name="emenu_btn_machines">Botón lista de maquinas</string>
+    <string name="emenu_btn_routines">Botón lista de rutinas</string>
+    <string name="emenu_btn_stats">Botón estadisticas del gimnasio</string>
+    <string name="emenu_txt_routines">Lista de rutinas</string>
+    <string name="emenu_txt_clients">Lista de clientes</string>
+    <string name="emenu_txt_machines">Lista de maquinas</string>
+    <string name="emenu_txt_stats">Estadisticas</string>
+
     <!-- Fuentes de mensajes emergentes de la aplicacion -->
     <string name="main_msg_1">No existe usuario</string>
     <string name="main_msg_2">El correo electronico no esta verificado</string>

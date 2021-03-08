@@ -76,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
                                 //Error: El usuario existe pero no puede iniciar sesion hasta verificar su correo electronico
                                 Toast.makeText(MainActivity.this, R.string.main_msg_2, Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(MainActivity.this, R.string.main_msg_6, Toast.LENGTH_LONG).show();
+                                Intent menu = new Intent(getApplicationContext(), employeeMenu.class);
+                                startActivity(menu);
+                                finish();
                             }
                         } else {
                             //Error: No se pudo iniciar sesion por razones externas
