@@ -18,7 +18,7 @@
     <string name="reg_img_logo">GIM logo</string>
     <string name="reg_img_return">Return to the sign in screen</string>
 
-    <!-- Sign up window fonts -->
+    <!-- Employee menu fonts -->
     <string name="emenu_btn_menu">Menu button</string>
     <string name="emenu_btn_clients">Clients list button</string>
     <string name="emenu_btn_machines">Machines list button</string>
@@ -28,6 +28,17 @@
     <string name="emenu_txt_clients">Client`s list</string>
     <string name="emenu_txt_machines">Machine`s list</string>
     <string name="emenu_txt_stats">GIM stats</string>
+
+    <!-- Employee profile screen fonts -->
+    <string name="eprofile_btn_retun">Return button</string>
+    <string name="eprofile_txt_profile">Profile</string>
+    <string name="eprofile_txt_pic">Change profile pic</string>
+    <string name="eprofile_txt_chage_email">Change e-mail</string>
+    <string name="eprofile_txt_password">Change password</string>
+    <string name="eprofile_btn_exit">Close session</string>
+    <string name="eprofile_img_user">User pic</string>
+    <string name="eprofile_txt_username">Username</string>
+    <string name="eprofile_txt_email">E-Mail</string>
 
     <!-- App messages fonts -->
     <string name="main_msg_1">User dont exist</string>

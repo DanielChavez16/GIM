@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".employeeMenu"></activity>
+        <activity android:name=".employeeProfile"></activity>
+        <activity android:name=".employeeMenu" />
         <activity android:name=".RegistryActivity" />
         <activity
             android:name=".MainActivity"

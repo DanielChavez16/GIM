@@ -30,6 +30,17 @@
     <string name="emenu_txt_machines">Lista de maquinas</string>
     <string name="emenu_txt_stats">Estadisticas</string>
 
+    <!-- Fuentes de la pantalla de perfil de empleado -->
+    <string name="eprofile_btn_retun">Botón regresar</string>
+    <string name="eprofile_txt_profile">Perfil</string>
+    <string name="eprofile_txt_pic">Cambiar foto de perfil</string>
+    <string name="eprofile_txt_chage_email">Cambiar correo electronico</string>
+    <string name="eprofile_txt_password">Cambiar contraseña</string>
+    <string name="eprofile_btn_exit">Cerrar sesión</string>
+    <string name="eprofile_img_user">Imagen del usuario</string>
+    <string name="eprofile_txt_username">Nombre de usuario</string>
+    <string name="eprofile_txt_email">Correo electronico</string>
+
     <!-- Fuentes de mensajes emergentes de la aplicacion -->
     <string name="main_msg_1">No existe usuario</string>
     <string name="main_msg_2">El correo electronico no esta verificado</string>
