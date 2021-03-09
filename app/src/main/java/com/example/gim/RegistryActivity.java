@@ -2,6 +2,9 @@ package com.example.gim;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -16,6 +19,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
 import java.util.regex.Pattern;
 
 public class RegistryActivity extends AppCompatActivity {
@@ -26,7 +33,7 @@ public class RegistryActivity extends AppCompatActivity {
 
     //Declaracion del objeto de referencia de la base de datos
     DatabaseReference databaseReference;
-    //Declatacion del objeto de referencia de la base de datos
+    //Declatacion del objeto de referencia de la autenticacion
     FirebaseAuth firebaseAuth;
 
     //Metodo que se ejecuta al crear la interfaz
@@ -107,10 +114,11 @@ public class RegistryActivity extends AppCompatActivity {
                     user.setId(userNew.getUid());
                     user.setNombre(name);
                     user.setCorreo(email);
-                    user.setPassword(password);
                     user.setMembresia("Prueba");
                     user.setTipo("Cliente");
+                    user.setImagen("https://firebasestorage.googleapis.com/v0/b/gim-84f3f.appspot.com/o/Usuarios%2Fimg_user_pic.jpg?alt=media&token=ffa09828-91bf-42e5-84d1-f49457cb113a");
                     //Funcion que inserta los datos del usuario en la base de datos
+                    databaseReference.child("Usuario").child(user.getId()).getDatabase();
                     databaseReference.child("Usuario").child(user.getId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

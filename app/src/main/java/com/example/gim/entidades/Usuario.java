@@ -1,7 +1,7 @@
 package com.example.gim.entidades;
 
 public class Usuario {
-    private String id, nombre, correo, password, tipo, membresia;
+    private String id, nombre, correo, tipo, membresia, imagen;
 
     public Usuario() {
     }
@@ -26,16 +26,12 @@ public class Usuario {
         return correo;
     }
 
+    public String getImagen() { return imagen; }
+
+    public void setImagen(String imagen) { this.imagen = imagen; }
+
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getTipo() {

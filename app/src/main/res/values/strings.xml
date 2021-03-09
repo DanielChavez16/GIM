@@ -39,6 +39,7 @@
     <string name="eprofile_img_user">User pic</string>
     <string name="eprofile_txt_username">Username</string>
     <string name="eprofile_txt_email">E-Mail</string>
+    <string name="eprofile_txt_lang">Languaje ENGLISH / es</string>
 
     <!-- App messages fonts -->
     <string name="main_msg_1">User dont exist</string>
@@ -46,7 +47,6 @@
     <string name="main_msg_3">Couldnt start session</string>
     <string name="main_msg_4">E-mail not valid</string>
     <string name="main_msg_5">Error: Fill all the fields</string>
-    <string name="main_msg_6">User started session correctly</string>
 
     <string name="reg_msg_1">Error registring user</string>
     <string name="reg_msg_2">Error: Password must contain more than 6 characters</string>

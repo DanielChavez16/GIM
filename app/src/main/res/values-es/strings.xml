@@ -40,6 +40,7 @@
     <string name="eprofile_img_user">Imagen del usuario</string>
     <string name="eprofile_txt_username">Nombre de usuario</string>
     <string name="eprofile_txt_email">Correo electronico</string>
+    <string name="eprofile_txt_lang">Idioma ESPAÑOL / en</string>
 
     <!-- Fuentes de mensajes emergentes de la aplicacion -->
     <string name="main_msg_1">No existe usuario</string>
@@ -47,7 +48,6 @@
     <string name="main_msg_3">No se pudo iniciar sesión</string>
     <string name="main_msg_4">Correo no valido</string>
     <string name="main_msg_5">Error: Llena todos los campos</string>
-    <string name="main_msg_6">El usuario inicio sesión correctamente</string>
 
     <string name="reg_msg_1">Error al registrar usuario</string>
     <string name="reg_msg_2">Error: La contraseña debe contener mas de 6 caracteres</string>

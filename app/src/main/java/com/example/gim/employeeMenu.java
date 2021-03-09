@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class employeeMenu extends AppCompatActivity {
 
@@ -14,9 +17,10 @@ public class employeeMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        eM = this;
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_employee_menu);
+        eM = this;
     }
 
     public void redirListaRutinas(View view) {
@@ -38,5 +42,12 @@ public class employeeMenu extends AppCompatActivity {
     public void redirVerPerfil(View view) {
         Intent perfil = new Intent(getApplicationContext(), employeeProfile.class);
         startActivity(perfil);
+    }
+
+    public void loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String lang = prefs.getString("My_Lang", "");
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
     }
 }
