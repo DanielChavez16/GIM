@@ -23,6 +23,8 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Activity main;
+
     //Declaracion de las vistas que se van a utilizar
     EditText txt_email, txt_pass;
     String email, pass;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_main);
+        main = this;
 
         //Obtencion de las vistas de la interfaz
         txt_email = findViewById(R.id.login_txt_email);
@@ -47,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Metodo que redirige a la pantalla de registro y limpia los campos de texto / Se ejecuta al presionar el boton "Regístrate"
     public void redirRegistro(View view) {
-        Intent registro = new Intent(this, RegistryActivity.class);
-        startActivity(registro);
+        Intent reg = new Intent(this, RegistryActivity.class);
+        startActivity(reg.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
         txt_email.setText("");
         txt_pass.setText("");
     }
@@ -76,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
                                 //Error: El usuario existe pero no puede iniciar sesion hasta verificar su correo electronico
                                 Toast.makeText(MainActivity.this, R.string.main_msg_2, Toast.LENGTH_LONG).show();
                             } else {
-                                Intent menu = new Intent(getApplicationContext(), employeeMenu.class);
-                                startActivity(menu);
+                                Intent eMenu = new Intent(getApplicationContext(), employeeMenu.class);
+                                startActivity(eMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                                 finish();
                             }
                         } else {
@@ -108,9 +111,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             setLocale("es");
         }
-        Intent refresh = new Intent(this, MainActivity.class);
-        startActivity(refresh);
-        this.finish();
+        finish();
+        startActivity(getIntent().addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     //Metodo que establece el lenguaje de la aplicacion y lo guarda en la memoria

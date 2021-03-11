@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gim">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,14 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".employeeProfile"></activity>
-        <activity android:name=".employeeMenu" />
-        <activity android:name=".RegistryActivity" />
+        <activity android:name=".clientProfile" android:launchMode="singleInstance"/>
+        <activity android:name=".clientMenu" android:launchMode="singleInstance"/>
+        <activity android:name=".employeeProfile" android:launchMode="singleInstance"/>
+        <activity android:name=".employeeMenu" android:launchMode="singleInstance"/>
+        <activity android:name=".RegistryActivity" android:launchMode="singleInstance"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" android:launchMode="singleInstance"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

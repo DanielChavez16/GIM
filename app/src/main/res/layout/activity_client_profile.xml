@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#464646"
+    tools:context=".clientProfile">
+
+    <TextView
+        android:id="@+id/cprofile_txt_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_info_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="cambiarFoto"
+        android:text="@string/cprofile_txt_pic"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_change_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_txt_pic"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="cambiarCorreo"
+        android:text="@string/cprofile_txt_change_email"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_txt_change_email"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="cambiarPassword"
+        android:text="@string/cprofile_txt_password"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_txt_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="cambiarLen"
+        android:text="@string/cprofile_txt_lang"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/cprofile_btn_exit"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="30dp"
+        android:background="#640000"
+        android:fontFamily="@font/mitr_bold"
+        android:onClick="salir"
+        android:text="@string/cprofile_btn_exit"
+        android:textColor="#FFFFFF" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/cprofile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#1A1A1A"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <ImageButton
+        android:id="@+id/cprofile_btn_return"
+        android:layout_width="53dp"
+        android:layout_height="39dp"
+        android:layout_alignBottom="@+id/cprofile_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/cprofile_btn_return"
+        android:onClick="returnMenu"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/img_btn_return" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_profile"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:text="@string/cprofile_txt_profile"
+        android:textAlignment="center"
+        android:textColor="#BEA055"
+        android:textSize="40sp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/cprofile_info_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="170sp"
+        android:layout_below="@+id/cprofile_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#323232"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <ImageView
+        android:id="@+id/cprofile_img_user"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignTop="@+id/cprofile_info_toolbar"
+        android:layout_alignBottom="@+id/cprofile_info_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/cprofile_img_user"
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cprofile_info_toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/cprofile_img_user"
+        android:text="@string/cprofile_txt_username"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
+        android:layout_toEndOf="@+id/cprofile_img_user"
+        android:text="@string/cprofile_txt_email"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="115dp"
+        android:layout_toEndOf="@+id/cprofile_img_user"
+        android:text="@string/cprofile_txt_sub"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/cprofile_txt_eMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cprofile_txt_lang"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:clickable="false"
+        android:focusable="auto"
+        android:onClick="cambiarMenu"
+        android:text="@string/cprofile_txt_eMenu"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:visibility="invisible" />
+</RelativeLayout>

@@ -29,9 +29,10 @@
     <string name="emenu_txt_clients">Lista de clientes</string>
     <string name="emenu_txt_machines">Lista de maquinas</string>
     <string name="emenu_txt_stats">Estadisticas</string>
+    <string name="emenu_img_logo">Logo de GIM</string>
 
     <!-- Fuentes de la pantalla de perfil de empleado -->
-    <string name="eprofile_btn_retun">Botón regresar</string>
+    <string name="eprofile_btn_return">Botón regresar</string>
     <string name="eprofile_txt_profile">Perfil</string>
     <string name="eprofile_txt_pic">Cambiar foto de perfil</string>
     <string name="eprofile_txt_chage_email">Cambiar correo electronico</string>
@@ -41,6 +42,27 @@
     <string name="eprofile_txt_username">Nombre de usuario</string>
     <string name="eprofile_txt_email">Correo electronico</string>
     <string name="eprofile_txt_lang">Idioma ESPAÑOL / en</string>
+    <string name="eprofile_txt_cMenu">Cambiar al menu del cliente</string>
+
+    <!-- Client menu fonts -->
+    <string name="cmenu_btn_menu">Botón menu</string>
+    <string name="cmenu_img_logo">Logo de GIM</string>
+    <string name="cmenu_btn_stats">Estadisticas del cliente</string>
+    <string name="cmenu_btn_add">Unirse a routine</string>
+
+    <!-- Client profile screen font -->
+    <string name="cprofile_btn_return">Botón regresar</string>
+    <string name="cprofile_txt_pic">Cambiar foto de perfil</string>
+    <string name="cprofile_txt_change_email">Cambiar correo electronico</string>
+    <string name="cprofile_txt_password">Cambiar contraseña</string>
+    <string name="cprofile_txt_lang">Idioma ESPAÑOL / en</string>
+    <string name="cprofile_btn_exit">Cerrar sesión</string>
+    <string name="cprofile_txt_profile">Perfil</string>
+    <string name="cprofile_img_user">Imagen del usuario</string>
+    <string name="cprofile_txt_username">Nombre de usuario</string>
+    <string name="cprofile_txt_email">Correo electronico</string>
+    <string name="cprofile_txt_sub">Suscripción</string>
+    <string name="cprofile_txt_eMenu">Regresar al menu empleado</string>
 
     <!-- Fuentes de mensajes emergentes de la aplicacion -->
     <string name="main_msg_1">No existe usuario</string>

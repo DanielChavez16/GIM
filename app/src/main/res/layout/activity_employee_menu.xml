@@ -25,15 +25,15 @@
 
     <ImageButton
         android:id="@+id/emenu_btn_menu"
-        android:layout_width="92dp"
-        android:layout_height="38dp"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/emenu_toolbar"
         android:layout_alignBottom="@+id/emenu_toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="318dp"
+        android:layout_marginEnd="369dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/emenu_btn_menu"
@@ -170,5 +170,21 @@
         android:text="@string/emenu_txt_stats"
         android:textAlignment="center"
         android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/emenu_img_logo"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/emenu_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/emenu_img_logo"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/gim_logo2" />
 
 </RelativeLayout>

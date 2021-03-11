@@ -11,37 +11,29 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class employeeMenu extends AppCompatActivity {
+public class clientMenu extends AppCompatActivity {
 
-    public static Activity eM;
+    public static Activity cM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
-        setContentView(R.layout.activity_employee_menu);
-        eM = this;
-    }
-
-    public void redirListaRutinas(View view) {
-        Toast.makeText(this, "Lista de rutinas", Toast.LENGTH_SHORT).show();
-    }
-
-    public void redirListaClientes(View view) {
-        Toast.makeText(this, "Lista de clientes", Toast.LENGTH_SHORT).show();
-    }
-
-    public void redirListaMaquinas(View view) {
-        Toast.makeText(this, "Lista de maquinas", Toast.LENGTH_SHORT).show();
-    }
-
-    public void redirGimStats(View view) {
-        Toast.makeText(this, "Estadisticas del gimnasio", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_client_menu);
+        cM = this;
     }
 
     public void redirVerPerfil(View view) {
-        Intent perfil = new Intent(this, employeeProfile.class);
-        startActivity(perfil.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+        Intent cProfile = new Intent(this, clientProfile.class);
+        startActivity(cProfile.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+    }
+
+    public void clientStats(View view) {
+        Toast.makeText(this, "Ver las estadisticas del cliente", Toast.LENGTH_SHORT).show();
+    }
+
+    public void addRoutine(View view) {
+        Toast.makeText(this, "Unirse a una rutina", Toast.LENGTH_SHORT).show();
     }
 
     public void loadLocale() {

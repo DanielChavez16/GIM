@@ -30,17 +30,39 @@
     <string name="emenu_txt_machines">Machine`s list</string>
     <string name="emenu_txt_stats">GIM stats</string>
     <string name="eprofile_img_user">User pic</string>
+    <string name="emenu_img_logo">GIM Logo</string>
 
     <!-- Employee profile screen fonts -->
-    <string name="eprofile_btn_retun">Return button</string>
+    <string name="eprofile_btn_return">Return button</string>
     <string name="eprofile_txt_profile">Profile</string>
     <string name="eprofile_txt_pic">Change profile pic</string>
     <string name="eprofile_txt_chage_email">Change e-mail</string>
     <string name="eprofile_txt_password">Change password</string>
-    <string name="eprofile_btn_exit">Close session</string>
+    <string name="eprofile_btn_exit">Log out</string>
     <string name="eprofile_txt_username">Username</string>
     <string name="eprofile_txt_email">E-Mail</string>
     <string name="eprofile_txt_lang">Languaje ENGLISH / es</string>
+    <string name="eprofile_txt_cMenu">Change to client menu</string>
+
+    <!-- Client menu fonts -->
+    <string name="cmenu_btn_menu">Menu button</string>
+    <string name="cmenu_img_logo">GIM Logo</string>
+    <string name="cmenu_btn_stats">Client Stats</string>
+    <string name="cmenu_btn_add">Join routine</string>
+
+    <!-- Client profile screen font -->
+    <string name="cprofile_btn_return">Return button</string>
+    <string name="cprofile_txt_pic">Change profile pic</string>
+    <string name="cprofile_txt_change_email">Change email</string>
+    <string name="cprofile_txt_password">Change password</string>
+    <string name="cprofile_txt_lang">Languaje ENGLISH / es</string>
+    <string name="cprofile_btn_exit">Log out</string>
+    <string name="cprofile_txt_profile">Profile</string>
+    <string name="cprofile_img_user">User pic</string>
+    <string name="cprofile_txt_username">Username</string>
+    <string name="cprofile_txt_email">E-mail</string>
+    <string name="cprofile_txt_sub">Subscription</string>
+    <string name="cprofile_txt_eMenu">Return to employee menu</string>
 
     <!-- App messages fonts -->
     <string name="main_msg_1">User dont exist</string>

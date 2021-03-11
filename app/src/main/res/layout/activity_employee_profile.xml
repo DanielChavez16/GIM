@@ -34,7 +34,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/eprofile_btn_retun"
+        android:contentDescription="@string/eprofile_btn_return"
         android:onClick="returnMenu"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/img_btn_return"
@@ -49,7 +49,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="-1dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:background="#323232"
         android:minHeight="?attr/actionBarSize"
@@ -57,14 +57,14 @@
 
     <TextView
         android:id="@+id/eprofile_txt_profile"
-        android:layout_width="match_parent"
+        android:layout_width="131dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="140dp"
         android:fontFamily="@font/averia_sans_libre_bold"
         android:saveEnabled="false"
         android:scrollHorizontally="false"
@@ -149,6 +149,21 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/eprofile_txt_cMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eprofile_txt_lang"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="cambiarMenu"
+        android:text="@string/eprofile_txt_cMenu"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
     <ImageView
         android:id="@+id/eprofile_img_user"
         android:layout_width="129dp"
@@ -182,7 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/eprofile_toolbar"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="93dp"
+        android:layout_marginTop="100dp"
         android:layout_toEndOf="@+id/eprofile_img_user"
         android:text="@string/eprofile_txt_email"
         android:textAlignment="viewStart"

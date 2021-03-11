@@ -2,18 +2,14 @@ package com.example.gim;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.ContentLoadingProgressBar;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,24 +25,28 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
 
-public class employeeProfile extends AppCompatActivity {
+public class clientProfile extends AppCompatActivity {
 
     //Declaracion de vistas que se van a utilizar
-    TextView txt_name, txt_email;
+    TextView txt_name, txt_email, txt_sub, txt_eMenu;
     ImageView img_user;
 
+    //Declaracion del objeto de la base de datos
     DatabaseReference databaseReference;
+    //Declaracion de la autenticacion de usuario
     FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
-        setContentView(R.layout.activity_employee_profile);
+        setContentView(R.layout.activity_client_profile);
 
-        txt_name = findViewById(R.id.eprofile_txt_username);
-        txt_email = findViewById(R.id.eprofile_txt_email);
-        img_user = findViewById(R.id.eprofile_img_user);
+        txt_name = findViewById(R.id.cprofile_txt_username);
+        txt_email = findViewById(R.id.cprofile_txt_email);
+        txt_sub = findViewById(R.id.cprofile_txt_sub);
+        txt_eMenu = findViewById(R.id.cprofile_txt_eMenu);
+        img_user = findViewById(R.id.cprofile_img_user);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -64,11 +64,20 @@ public class employeeProfile extends AppCompatActivity {
 
                 txt_name.setText(usuario.getNombre());
                 txt_email.setText(usuario.getCorreo());
+                String text = txt_sub.getText().toString() + ": " + usuario.getMembresia();
+                txt_sub.setText(text);
                 Picasso.with(getApplicationContext()).load(usuario.getImagen()).into(img_user);
+
+                String tipo = usuario.getTipo();
+                if(tipo.equals("Empleado")) {
+                    txt_eMenu.setVisibility(View.VISIBLE);
+                    txt_eMenu.setClickable(true);
+                }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
         });
     }
 
@@ -85,19 +94,19 @@ public class employeeProfile extends AppCompatActivity {
     }
 
     public void cambiarPassword(View view) {
-        Toast.makeText(this, "Cambiar la contraseña del usuario", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cambiar contraseña del usuario", Toast.LENGTH_SHORT).show();
     }
 
     public void cambiarMenu(View view) {
-        finishAffinity();
-        employeeMenu.eM.finish();
-        Intent cMenu = new Intent(this, clientMenu.class);
-        startActivity(cMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+        finish();
+        clientMenu.cM.finish();
+        Intent eMenu = new Intent(this, employeeMenu.class);
+        startActivity(eMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
     }
 
     public void salir(View view) {
         finishAffinity();
-        employeeMenu.eM.finish();
+        clientMenu.cM.finish();
         startActivity(MainActivity.main.getIntent().addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
@@ -128,10 +137,10 @@ public class employeeProfile extends AppCompatActivity {
     }
 
     public void loadLocale() {
-        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String lang = prefs.getString("My_Lang", "");
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
+        SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
+        String idioma = prefs.getString("My_Lang", "");
+        Locale lang = new Locale(idioma);
+        Locale.setDefault(lang);
     }
 
     @Override
