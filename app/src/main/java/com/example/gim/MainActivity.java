@@ -23,8 +23,6 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Activity main;
-
     //Declaracion de las vistas que se van a utilizar
     EditText txt_email, txt_pass;
     String email, pass;
@@ -36,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loadLocale();
+        loadLocale();   //Ejecuta el metodo que carga el idioma
         setContentView(R.layout.activity_main);
-        main = this;
 
         //Obtencion de las vistas de la interfaz
         txt_email = findViewById(R.id.login_txt_email);

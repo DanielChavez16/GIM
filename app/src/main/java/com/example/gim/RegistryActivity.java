@@ -3,8 +3,6 @@ package com.example.gim;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -19,10 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
 import java.util.regex.Pattern;
 
 public class RegistryActivity extends AppCompatActivity {
@@ -107,8 +102,6 @@ public class RegistryActivity extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     //Declaracion del objeto que contiene los datos del usuario recientemente creado en el sistema
                     FirebaseUser userNew = firebaseAuth.getCurrentUser();
-                    //Funcion que envia al usuario un correo para verificar su correo electronico
-                    userNew.sendEmailVerification();
 
                     Usuario user = new Usuario();
                     user.setId(userNew.getUid());
@@ -123,6 +116,7 @@ public class RegistryActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
+                                userNew.sendEmailVerification();  //Funcion que envia al usuario un correo para verificar su correo electronico
                                 Toast.makeText(RegistryActivity.this, R.string.reg_msg_6, Toast.LENGTH_LONG).show();
                             }
                             else {
