@@ -8,6 +8,7 @@
     <string name="main_btn_join">Iniciar sesión</string>
     <string name="main_img_logo">Logo del gimnasio</string>
     <string name="main_txt_lang">en / ES</string>
+    <string name="main_txt_logout">Sesión cerrada correctamente</string>
 
     <!-- Fuentes de la ventana de registro -->
     <string name="reg_txt_registry">REGISTRO</string>

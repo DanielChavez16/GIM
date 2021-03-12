@@ -12,11 +12,18 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.gim.entidades.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -26,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     //Declaracion de las vistas que se van a utilizar
     EditText txt_email, txt_pass;
     String email, pass;
+
+    //Declaracion del objeto de la base de datos
+    DatabaseReference databaseReference;
 
     //Declaracion del objeto de autenticacion en Firebase
     FirebaseAuth firebaseAuth;
@@ -41,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         txt_email = findViewById(R.id.login_txt_email);
         txt_pass = findViewById(R.id.login_txt_pass);
 
-        //Obtencion de la instancia la autenticacion de Firebase
-        firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference(); //Obtencion de la referencia de la base de datos
+        firebaseAuth = FirebaseAuth.getInstance();  //Obtencion de la instancia la autenticacion de Firebase
     }
 
     //Metodo que redirige a la pantalla de registro y limpia los campos de texto / Se ejecuta al presionar el boton "Regístrate"
@@ -65,24 +75,41 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-                        //Error: El usuario no se encuentra en el registro de usuarios de firebase
-                        Toast.makeText(MainActivity.this, R.string.main_msg_1, Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.main_msg_1, Toast.LENGTH_LONG).show();  //Error: El usuario no se encuentra en el registro de usuarios de firebase
                     } else {
-                        //Creacion del objeto "user" que indica si el usuario a validado su correo electronico
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        FirebaseUser user = firebaseAuth.getCurrentUser();  //Creacion del objeto "user" que indica si el usuario a validado su correo electronico
 
                         if (user != null) {
-                            if (!user.isEmailVerified()) {
-                                //Error: El usuario existe pero no puede iniciar sesion hasta verificar su correo electronico
-                                Toast.makeText(MainActivity.this, R.string.main_msg_2, Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent eMenu = new Intent(getApplicationContext(), employeeMenu.class);
-                                startActivity(eMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
-                                finish();
+                            String ID = user.getUid();  //Obtiene el identificador de usuario
+
+                            if (!user.isEmailVerified()) {  //Condiciona si el correo del usuario no esta verificado
+                                Toast.makeText(MainActivity.this, R.string.main_msg_2, Toast.LENGTH_LONG).show();  //Error: El usuario existe pero no puede iniciar sesion hasta verificar su correo electronico
+                            } else {  //Si el correo del usuario esta validado ejecuta el siguiente codigo
+                                databaseReference.child("Usuario").addListenerForSingleValueEvent(new ValueEventListener() {  //Carga la referencia de la base de datos en el nodo "Usuario"
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        Usuario usuario = snapshot.child(ID).getValue(Usuario.class);  //Carga los datos obtenidos del nodo ID dado y los envia al constructor de la entidad "Usuario"
+
+                                        String tipoUsuario = usuario.getTipo();  //Escribe el tipo de usuario del nodo obtenido en una variable de cadena
+
+                                        if(tipoUsuario.equals("Empleado")) {  //Condiciona si la variable "tipoUsuario" obtenida contiene el valor de "Empleado"
+                                            Intent eMenu = new Intent(getApplicationContext(), employeeMenu.class);
+                                            startActivity(eMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));  //Ejecuta el intent del menu de empleado definido en la linea anterior
+                                            finish();  //Termina la actividad actual
+                                        }
+                                        else {  //Si la variable "tipoUsuario" contiene un valor diferente a "Empleado" se ejecuta el siguiente codigo
+                                            Intent cMenu = new Intent(getApplicationContext(), clientMenu.class);
+                                            startActivity(cMenu.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));  //Ejecuta el intent del menu de cliente definido en la linea anterior
+                                            finish();  //Termina la actividad actual
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {}
+                                });
                             }
                         } else {
-                            //Error: No se pudo iniciar sesion por razones externas
-                            Toast.makeText(MainActivity.this, R.string.main_msg_3, Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, R.string.main_msg_3, Toast.LENGTH_LONG).show();  //Error: No se pudo iniciar sesion por razones externas
                         }
                     }
                 }

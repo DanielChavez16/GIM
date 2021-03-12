@@ -43,15 +43,14 @@ public class RegistryActivity extends AppCompatActivity {
         txt_pass = findViewById(R.id.reg_txt_pass);
         txt_pass2 = findViewById(R.id.reg_txt_pass2);
 
-        //Ejecucion del metodo para inicializar firebase
-        inicializarFirebase();
+        inicializarFirebase();  //Ejecion del metodo para inicializar la base de datos
     }
 
     //Metodo que obtiene la referencia de firebase y obtiene la instancia de autenticacion de firebase
     private void inicializarFirebase() {
-        FirebaseApp.initializeApp(this);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseApp.initializeApp(this);  //Inicializa la base de datos en la aplicacion
+        databaseReference = FirebaseDatabase.getInstance().getReference();  //Obtiene la referencia de la base de datos
+        firebaseAuth = FirebaseAuth.getInstance();  //Obtiene la instancia de la autenticacion de la base de datos
     }
 
     //Metodo que hace la validacion de los datos de usuario ingresados / Se ejecuta al presionar el boton "Registrarse"
@@ -62,73 +61,63 @@ public class RegistryActivity extends AppCompatActivity {
         password = String.valueOf(txt_pass.getText());
         password2 = String.valueOf(txt_pass2.getText());
 
-        if(!name.equals("") && validarEmail(email) && !password.equals("")) {
-            if (password.length()>=6 && password.equals(password2)) {
+        if(!name.equals("") && validarEmail(email) && !password.equals("")) {  //Condicional que valida si los campos de texto no esten vacios o sean validos
+            if (password.length()>=6 && password.equals(password2)) {  //Condicional que valida la longitud de la contraseña y si las contraseñas introducisdas coinciden
                 try{
-                    //Inicia el metodo iniciarRegistro si las validaciones son correctas
-                    iniciarRegistro();
+                    iniciarRegistro();  //Inicializa el metodo para iniciar registro si las validaciones son correctas
                 } catch(Exception e) {
-                    //Error: No se puede iniciar el registro por razones externas
-                    Toast.makeText(this, R.string.reg_msg_1, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_1, Toast.LENGTH_LONG).show(); //Error: No se puede iniciar el regsitro por razones externas
                 }
             } else {
                 if(password.length() < 6) {
-                    //Error: modificar la longitud de la contraseña introducida
-                    Toast.makeText(this, R.string.reg_msg_2, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_2, Toast.LENGTH_LONG).show();  //Error: La longitud de la contraseña no es aceptada
                 }
                 else {
-                    //Error: Las contraseñas introducidas no coinciden
-                    Toast.makeText(this, R.string.reg_msg_3, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.reg_msg_3, Toast.LENGTH_LONG).show();  //Las contraseñas introducidas no coinciden
                 }
             }
         }
-        else {
-            //Errores que indican que los datos obtenidos en los campos de texto no son aceptados
-            if(!email.equals("") && !validarEmail(email)) {
-                Toast.makeText(this, R.string.reg_msg_4, Toast.LENGTH_SHORT).show();
+        else {  //Si las condiciones anteriores no son verdaderas, se ejecutan las siguientes lineas que muestran mensajes de error
+            if(!email.equals("") && !validarEmail(email)) {  //Condicional que valida si el campo del correo electronico no es valido o esta vacio
+                Toast.makeText(this, R.string.reg_msg_4, Toast.LENGTH_SHORT).show();  //Error el correo electronico introducido no es valido
             }
-            if(name.equals("") || email.equals("") || password.equals("")) {
-                Toast.makeText(this, R.string.reg_msg_5, Toast.LENGTH_LONG).show();
+            if(name.equals("") || email.equals("") || password.equals("")) {  //Condicional que valida si los campos indicados estan vacios
+                Toast.makeText(this, R.string.reg_msg_5, Toast.LENGTH_LONG).show();  //Error: Los campos de texto estan vacios
             }
         }
     }
 
     //Metodo que registra los datos introducidos en la base de datos
     private void iniciarRegistro() {
-        //Funcion que registra al usuario en el sistema usando correo y contraseña / Registra los datos del usuario en la base de datos
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {  //Funcion que registra al usuario en el sistema usando correo y contraseña
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task) {  //Funcion que se ejecuta al finalizar el registro del usuario en el sistema
                 if(task.isSuccessful()) {
-                    //Declaracion del objeto que contiene los datos del usuario recientemente creado en el sistema
-                    FirebaseUser userNew = firebaseAuth.getCurrentUser();
+                    FirebaseUser user = firebaseAuth.getCurrentUser();  //Creacion de la instancia que contiene al usuario actual
 
-                    Usuario user = new Usuario();
-                    user.setId(userNew.getUid());
-                    user.setNombre(name);
-                    user.setCorreo(email);
-                    user.setMembresia("Prueba");
-                    user.setTipo("Cliente");
-                    user.setImagen("https://firebasestorage.googleapis.com/v0/b/gim-84f3f.appspot.com/o/Usuarios%2Fimg_user_pic.jpg?alt=media&token=ffa09828-91bf-42e5-84d1-f49457cb113a");
-                    //Funcion que inserta los datos del usuario en la base de datos
-                    databaseReference.child("Usuario").child(user.getId()).getDatabase();
-                    databaseReference.child("Usuario").child(user.getId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    Usuario usuario = new Usuario();  //Creacion de la instancia que contiene al constructor de la entidad "Usuario"
+                    usuario.setId(user.getUid());  //Carga el ID de usuario del sistema
+                    usuario.setNombre(name);
+                    usuario.setCorreo(email);
+                    usuario.setMembresia("Prueba");
+                    usuario.setTipo("Cliente");
+                    usuario.setImagen("https://firebasestorage.googleapis.com/v0/b/gim-84f3f.appspot.com/o/Usuarios%2Fimg_user_pic.jpg?alt=media&token=ffa09828-91bf-42e5-84d1-f49457cb113a");  //Carga la imagen de perfil por defecto
+                    databaseReference.child("Usuario").child(usuario.getId()).getDatabase();  //Obtiene la base de datos asociada a la refernecia
+                    databaseReference.child("Usuario").child(usuario.getId()).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {  //Inserta los datos del constructor "Usuario" en la base de datos
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()) {
-                                userNew.sendEmailVerification();  //Funcion que envia al usuario un correo para verificar su correo electronico
+                        public void onComplete(@NonNull Task<Void> task) {  //Funcion que se ejecuta al finalizar de insertar datos en la base de datos
+                            if(task.isSuccessful()) {  //Condicional que valida si la tarea se ejecuto correctamente
+                                user.sendEmailVerification();  //Funcion que envia al usuario un correo para verificar su correo electronico
                                 Toast.makeText(RegistryActivity.this, R.string.reg_msg_6, Toast.LENGTH_LONG).show();
                             }
-                            else {
-                                //Error: Los datos del usuario no se pudieron insertar en la base de datos
-                                Toast.makeText(RegistryActivity.this, R.string.reg_msg_7, Toast.LENGTH_LONG).show();
+                            else {  //Si la tarea no se ejecuto con exito
+                                Toast.makeText(RegistryActivity.this, R.string.reg_msg_7, Toast.LENGTH_LONG).show();  //Error: Los datos del usuario no se pudieron insertar en la base de datos
                             }
                         }
                     });
                 }
-                else {
-                    //Error: No se pudo crear el usuario por razones externas
-                    Toast.makeText(RegistryActivity.this, R.string.reg_msg_8, Toast.LENGTH_LONG).show();
+                else {  //Si no pudo registrar el usuario en el sistema se ejecutan las siguientes lineas de codigo
+                    Toast.makeText(RegistryActivity.this, R.string.reg_msg_8, Toast.LENGTH_LONG).show();  //Error: No se pudo crear el usuario por razones externas
                 }
             }
         });
@@ -136,8 +125,8 @@ public class RegistryActivity extends AppCompatActivity {
 
     //Metodo booleano que valida el correo electronico introducido
     private boolean validarEmail(String email) {
-        Pattern pattern = Patterns.EMAIL_ADDRESS;
-        return pattern.matcher(email).matches();
+        Pattern pattern = Patterns.EMAIL_ADDRESS;  //Crea la instancia "pattern", que valida la escritura del correo electrnico
+        return pattern.matcher(email).matches();  //Regresa el resultado de la validacion
     }
 
     //Metodo que cierra la actividad actual y regresa al menu de inicio de sesión

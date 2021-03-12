@@ -59,7 +59,7 @@ public class employeeProfile extends AppCompatActivity {
 
         String id = usuario.getUid();   //Obtiene el ID del usuario conectado
 
-        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() { //Obtencion de los datos del nodo hijo "Usuario"
+        databaseReference.child("Usuario").addListenerForSingleValueEvent(new ValueEventListener() { //Obtencion de los datos del nodo hijo "Usuario"
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Usuario usuario = snapshot.child(id).getValue(Usuario.class);   //Obtencion de los datos del nodo hijo "ID"
@@ -104,8 +104,15 @@ public class employeeProfile extends AppCompatActivity {
 
     //Metodo que cierra la sesión del usuario y redirige a la pantalla de inicio de sesión
     public void salir(View view) {
-        finishAffinity();   //Termina las actividades debajo de la tarea actual
-        employeeMenu.eM.finish();   //Termina la actividad del menu de empleado
+        finishAffinity();  //Termina las actividades debajo de la tarea actual
+        employeeMenu.eM.finish();  //Termina la actividad del menu de empleado
+        try {
+            firebaseAuth.signOut();  //Cierra la sesión del usuario actual
+            Toast.makeText(this, R.string.main_txt_logout, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show(); //Error: Indica la razón por la que el usuario no pudo cerrar sesión en un mensage emergente
+        }
         Intent main = new Intent(this, MainActivity.class);
         startActivity(main.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));  //Ejecuta el intent de la pantalla de inicio de sesión
     }

@@ -8,6 +8,7 @@
     <string name="main_btn_join">Join</string>
     <string name="main_img_logo">GIM logo</string>
     <string name="main_txt_lang">EN / es</string>
+    <string name="main_txt_logout">LogOut succesfully</string>
 
     <!-- Sign up window fonts -->
     <string name="reg_txt_registry">REGISTER</string>

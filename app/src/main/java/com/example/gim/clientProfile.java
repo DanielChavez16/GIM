@@ -60,7 +60,7 @@ public class clientProfile extends AppCompatActivity {
 
         String id = usuario.getUid();  //Obtiene el ID del usuario conectado
 
-        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {  //Obtiene los datos del nodo hijo "Usuario"
+        databaseReference.child("Usuario").addListenerForSingleValueEvent(new ValueEventListener() {  //Obtiene los datos del nodo hijo "Usuario"
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Usuario usuario = snapshot.child(id).getValue(Usuario.class);  //Obtencion de los datos del nodo hijo "ID"
@@ -116,6 +116,13 @@ public class clientProfile extends AppCompatActivity {
     public void salir(View view) {
         finishAffinity();  //Termina laas actividades debajo de la tarea actual
         clientMenu.cM.finish();  //Termina la actvidad del menu de cliente
+        try {
+            firebaseAuth.signOut();  //Cierra la sesión del usuario actual
+            Toast.makeText(this, R.string.main_txt_logout, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();  //Error: Indica la razón por la que el usuario no pudo cerrar sesión en un mensage emergente
+        }
         Intent main = new Intent(this, MainActivity.class);
         startActivity(main.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));  //Ejecuta el intent de la pantalla de incio de sesión
     }
