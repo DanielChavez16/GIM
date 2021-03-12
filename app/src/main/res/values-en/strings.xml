@@ -65,6 +65,24 @@
     <string name="cprofile_txt_sub">Subscription</string>
     <string name="cprofile_txt_eMenu">Return to employee menu</string>
 
+    <!-- Client list screen fonts -->
+    <string name="clist_txt_header">Clients List</string>
+    <string name="clist_btn_return">Return button</string>
+
+    <!-- Machines list screen fonts -->
+    <string name="mlist_txt_header">Machines List</string>
+    <string name="mlist_btn_return">Return button</string>
+    <string name="mlist_btn_add">Add machine</string>
+
+    <!-- Routines list screen fonts -->
+    <string name="rlist_txt_header">Routines list</string>
+    <string name="rlist_btn_return">Return button</string>
+    <string name="rlist_btn_add">Add routine</string>
+
+    <!-- Gim stats screen fonts -->
+    <string name="gimstats_txt_header">GIM Stats</string>
+    <string name="gimstats_btn_return">Return button</string>
+
     <!-- App messages fonts -->
     <string name="main_msg_1">User dont exist</string>
     <string name="main_msg_2">E-mail not verified</string>

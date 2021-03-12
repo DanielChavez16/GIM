@@ -65,6 +65,24 @@
     <string name="cprofile_txt_sub">Suscripción</string>
     <string name="cprofile_txt_eMenu">Regresar al menu empleado</string>
 
+    <!--Fuentes de la pantalla de lista de clientes -->
+    <string name="clist_txt_header">Lista de Clientes</string>
+    <string name="clist_btn_return">Botón regresar</string>
+
+    <!-- Fuentes de la pantalla de lista de maquinas -->
+    <string name="mlist_txt_header">Lista de Maquinas</string>
+    <string name="mlist_btn_return">Botoón regresar</string>
+    <string name="mlist_btn_add">Añadir maquina</string>
+
+    <!-- Fuentes de la pantalla de la lista de rutinas -->
+    <string name="rlist_txt_header">Lista de rutinas</string>
+    <string name="rlist_btn_return">Botón regresar</string>
+    <string name="rlist_btn_add">Añadir rutina</string>
+
+    <!-- Fuentes de la pantalla de estadisticas de gimnasio -->
+    <string name="gimstats_txt_header">Estadisticas</string>
+    <string name="gimstats_btn_return">Botón regresar</string>
+
     <!-- Fuentes de mensajes emergentes de la aplicacion -->
     <string name="main_msg_1">No existe usuario</string>
     <string name="main_msg_2">El correo electronico no esta verificado</string>

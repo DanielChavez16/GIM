@@ -34,20 +34,18 @@
         android:layout_marginEnd="137dp"
         android:layout_marginBottom="4dp"
         android:contentDescription="@string/cmenu_img_logo"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/gim_logo2" />
 
     <ImageButton
         android:id="@+id/cmenu_btn_menu"
-        android:layout_width="wrap_content"
+        android:layout_width="39dp"
         android:layout_height="39dp"
         android:layout_alignBottom="@+id/cmenu_toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="369dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/cmenu_btn_menu"

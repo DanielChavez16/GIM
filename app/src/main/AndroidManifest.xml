@@ -11,16 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".clientProfile" android:launchMode="singleInstance"/>
-        <activity android:name=".clientMenu" android:launchMode="singleInstance"/>
-        <activity android:name=".employeeProfile" android:launchMode="singleInstance"/>
-        <activity android:name=".employeeMenu" android:launchMode="singleInstance"/>
-        <activity android:name=".RegistryActivity" android:launchMode="singleInstance"/>
+        <activity android:name=".gimStats"></activity>
+        <activity android:name=".routineList" />
+        <activity android:name=".machinesList" />
+        <activity android:name=".clientList" />
+        <activity
+            android:name=".clientProfile"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".clientMenu"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".employeeProfile"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".employeeMenu"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".RegistryActivity"
+            android:launchMode="singleInstance" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" android:launchMode="singleInstance"/>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:launchMode="singleInstance" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

@@ -27,22 +27,26 @@ public class employeeMenu extends AppCompatActivity {
 
     //Metodo que redirige a la actividad que muestra la lista de rutinas
     public void redirListaRutinas(View view) {
-        Toast.makeText(this, "Lista de rutinas", Toast.LENGTH_SHORT).show();
+        Intent listaRutinas = new Intent(this, routineList.class);
+        startActivity(listaRutinas.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     //Metodo que redirige a la actividad que muestra la lista de clientes
     public void redirListaClientes(View view) {
-        Toast.makeText(this, "Lista de clientes", Toast.LENGTH_SHORT).show();
+        Intent listaClientes = new Intent(this, clientList.class);
+        startActivity(listaClientes.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     //Metodo que redirige a la actividad que muestra la lista de maquinas
     public void redirListaMaquinas(View view) {
-        Toast.makeText(this, "Lista de maquinas", Toast.LENGTH_SHORT).show();
+        Intent listaMaquinas = new Intent(this, machinesList.class);
+        startActivity(listaMaquinas.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     //Metodo que redirige a la actividad que muestra las estadisticas del gimnasio
     public void redirGimStats(View view) {
-        Toast.makeText(this, "Estadisticas del gimnasio", Toast.LENGTH_SHORT).show();
+        Intent stats = new Intent(this, gimStats.class);
+        startActivity(stats.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     //Metodo del botón que redirige a la interfaz que muestra informacion del perfil del empleado
